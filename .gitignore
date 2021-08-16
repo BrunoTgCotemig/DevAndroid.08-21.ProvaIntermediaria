@@ -1,1 +1,8 @@
+/*
+!*.kt
+!*.xml
+!.gitignore
 
+!/app/
+/app/*
+!/app/src/
