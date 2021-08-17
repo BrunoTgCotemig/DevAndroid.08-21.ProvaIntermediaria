@@ -3,6 +3,7 @@ package com.example.a2etapa_provaintermediaria
 
 import ArbitraryClasses.RV_MainAdapter
 import ArbitraryClasses.RV_MainAdapter_todo
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -24,20 +25,37 @@ class MainActivity : AppCompatActivity()
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-    val todoList = mutableListOf(
-        RV_MainAdapter_todo("Curso: Flutter"," Muito melhor que React!", "Valor: $20.00"),
-        RV_MainAdapter_todo("Curso: Angular"," Você nunca o intenderá completamente....", "Valor: $30.00"),
-        RV_MainAdapter_todo("Curso: C#"," Sem ASP.NET!", "Valor: $44.00"),
-        RV_MainAdapter_todo("Curso: F#"," Programação funcional > Orientada a objetos", "Valor: $50.00"),
-        RV_MainAdapter_todo("Curso: Rust"," Melhor que c++ ..?", "Valor: $66.00"),
-        RV_MainAdapter_todo("Curso: Java"," Melhor que c#. Com toda certeza.", "Valor: $70.00"),
-        RV_MainAdapter_todo("Curso: NodeJs","Uma odisseia em busca de como fazer variaveis globais", "Valor: $88.00"),
-        RV_MainAdapter_todo("Curso: AppInventor"," A MELHOR FERRAMENTA PARA CRIAÇÃO DE APPS!!!!!! IMPERDIVEL!!", "Valor: $90.00"),
-        RV_MainAdapter_todo("Curso: C++","Ooga Booga! Memoria alocada dinamicamente! ", "Valor: $1100.00"),
-        RV_MainAdapter_todo("Curso: C"," Programação procedural > Orientada a objetos", "Valor: $2000.00"),
+        //fun ChangeScreens()
+        //{
+        //    val ItemDisplay= Intent(this,ItemDisplay::class.java)
+        //    startActivity(ItemDisplay)
+        //}
+
+        val todoList = mutableListOf(
+            RV_MainAdapter_todo("Curso: Flutter"," Muito melhor que React!", "Valor: $20.00"),
+            RV_MainAdapter_todo("Curso: Angular"," Você nunca o intenderá completamente....", "Valor: $30.00"),
+            RV_MainAdapter_todo("Curso: C#"," Sem ASP.NET!", "Valor: $44.00"),
+            RV_MainAdapter_todo("Curso: F#"," Programação funcional > Orientada a objetos", "Valor: $50.00"),
+            RV_MainAdapter_todo("Curso: Rust"," Melhor que c++ ..?", "Valor: $66.00"),
+            RV_MainAdapter_todo("Curso: Java"," Melhor que c#. Com toda certeza.", "Valor: $70.00"),
+            RV_MainAdapter_todo("Curso: NodeJs","Uma odisseia em busca de como fazer variaveis globais", "Valor: $88.00"),
+            RV_MainAdapter_todo("Curso: AppInventor"," A MELHOR FERRAMENTA PARA CRIAÇÃO DE APPS!!!!!! IMPERDIVEL!!", "Valor: $90.00"),
+            RV_MainAdapter_todo("Curso: C++","Ooga Booga! Memoria alocada dinamicamente! ", "Valor: $1100.00"),
+            RV_MainAdapter_todo("Curso: C"," Programação procedural > Orientada a objetos", "Valor: $2000.00"),
     )
 
-        val RV_MainAdapter = RV_MainAdapter(    todoList, fun (p: RV_MainAdapter_todo){}    )
+        val RV_MainAdapter = RV_MainAdapter(    todoList, fun (p: RV_MainAdapter_todo){
+
+            var _intent = Intent(this, ItemDisplay::class.java)
+
+
+            _intent.putExtra("ProductValue", p.ProductValue)
+            _intent.putExtra("ProductDescription", p.ProductDescription)
+            _intent.putExtra("ProductName", p.ProductName)
+            startActivity(_intent)
+        }    )
+
+
         val Main_RecyclerView = findViewById<RecyclerView>(R.id.Main_RecyclerView)
 
         Main_RecyclerView.adapter = RV_MainAdapter

@@ -1,4 +1,0 @@
-package ArbitraryClasses
-
-class IntentConnection {
-}
