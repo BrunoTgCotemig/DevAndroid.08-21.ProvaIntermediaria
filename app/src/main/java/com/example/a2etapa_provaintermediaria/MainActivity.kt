@@ -24,24 +24,27 @@ class MainActivity : AppCompatActivity()
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-    var todoList = mutableListOf(
-        RV_MainAdapter_todo("Curso: Flutter"," ~~ Muito melhor que React", "Valor: $20.00"),
-        RV_MainAdapter_todo("Curso: Angular"," ~~ Você nunca o intenderá completamente", "Valor: $30.00"),
-        RV_MainAdapter_todo("Curso: C#"," ~~ Sem ASP.NET", "Valor: $44.00"),
-        RV_MainAdapter_todo("Curso: F#"," ~~ Programação funcional > orientada a objetos", "Valor: $50.00"),
-        RV_MainAdapter_todo("Curso: Rust"," ~~ Melhor que c++ ..?", "Valor: $66.00"),
-        RV_MainAdapter_todo("Curso: Java"," ~~ Melhor que c#", "Valor: $70.00"),
-        RV_MainAdapter_todo("Curso: NodeJs"," ~~ Como fazer variaveis globais", "Valor: $88.00"),
-        RV_MainAdapter_todo("Curso: AppInventor"," ~~ A MELHOR FERRAMENTA PARA CRIAÇÃO DE APPS", "Valor: $90.00"),
-        RV_MainAdapter_todo("Curso: C++"," ~~ RAM sobrecarregada", "Valor: $1100.00"),
-        RV_MainAdapter_todo("Curso: C"," ~~ Programação procedural > Orientada a objetos", "Valor: $2000.00"),
+    val todoList = mutableListOf(
+        RV_MainAdapter_todo("Curso: Flutter"," Muito melhor que React!", "Valor: $20.00"),
+        RV_MainAdapter_todo("Curso: Angular"," Você nunca o intenderá completamente....", "Valor: $30.00"),
+        RV_MainAdapter_todo("Curso: C#"," Sem ASP.NET!", "Valor: $44.00"),
+        RV_MainAdapter_todo("Curso: F#"," Programação funcional > Orientada a objetos", "Valor: $50.00"),
+        RV_MainAdapter_todo("Curso: Rust"," Melhor que c++ ..?", "Valor: $66.00"),
+        RV_MainAdapter_todo("Curso: Java"," Melhor que c#. Com toda certeza.", "Valor: $70.00"),
+        RV_MainAdapter_todo("Curso: NodeJs","Uma odisseia em busca de como fazer variaveis globais", "Valor: $88.00"),
+        RV_MainAdapter_todo("Curso: AppInventor"," A MELHOR FERRAMENTA PARA CRIAÇÃO DE APPS!!!!!! IMPERDIVEL!!", "Valor: $90.00"),
+        RV_MainAdapter_todo("Curso: C++","Ooga Booga! Memoria alocada dinamicamente! ", "Valor: $1100.00"),
+        RV_MainAdapter_todo("Curso: C"," Programação procedural > Orientada a objetos", "Valor: $2000.00"),
     )
 
-        val RV_MainAdapter = RV_MainAdapter(todoList)
+        val RV_MainAdapter = RV_MainAdapter(    todoList, fun (p: RV_MainAdapter_todo){}    )
         val Main_RecyclerView = findViewById<RecyclerView>(R.id.Main_RecyclerView)
 
         Main_RecyclerView.adapter = RV_MainAdapter
         Main_RecyclerView.layoutManager = LinearLayoutManager(this)
+
+
+
 
     }
 }

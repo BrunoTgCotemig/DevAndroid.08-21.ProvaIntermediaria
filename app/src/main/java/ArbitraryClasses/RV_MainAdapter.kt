@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.a2etapa_provaintermediaria.R
 import java.util.jar.Attributes
 
-class RV_MainAdapter (var todos:List<RV_MainAdapter_todo>): RecyclerView.Adapter<RV_MainAdapter.Adapter1>()
+class RV_MainAdapter (   var todos:List<RV_MainAdapter_todo>, private val itemClickListener: (p: RV_MainAdapter_todo) -> Unit    ): RecyclerView.Adapter<RV_MainAdapter.Adapter1>()
 {// -- Code
     inner class Adapter1(itemView: View) : RecyclerView.ViewHolder(itemView)   //This stands for the to-do ViewHolder
     {
@@ -28,15 +28,25 @@ class RV_MainAdapter (var todos:List<RV_MainAdapter_todo>): RecyclerView.Adapter
         return Adapter1(view)
     }
 
+
+
+
+
     override fun onBindViewHolder(holder: Adapter1, position: Int) {
         holder._Name.text = todos[position].ProductName
         holder._Description.text = todos[position].ProductDescription
         holder._Value.text = todos[position].ProductValue
 
+        holder.itemView.setOnClickListener{   itemClickListener(todos[position])   }
+
         //holder.itemView.apply{
         //
         //}
     }
+
+
+
+
 
     override fun getItemCount(): Int {
         return todos.size
