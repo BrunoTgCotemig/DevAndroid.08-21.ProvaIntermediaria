@@ -1,4 +1,4 @@
-# 2ª Etapa - Prova Intermediaria - Desenvolvimento IOS 
+# 2ª Etapa - Prova Intermediaria - Desenvolvimento Android
 
 
 
